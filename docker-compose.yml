@@ -22,7 +22,7 @@ services:
       - "443:443"   # TLS/SSL
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - "./data/traefik/dynamic/certs-traefik.yaml:/etc/traefik/dynamic/certs-traefik.yaml"
+      - "./data/traefik/certs-traefik.yaml:/etc/traefik/dynamic/certs-traefik.yaml"
       - "./etc/letsencrypt/live/reportportal.thierryboulord.me:/etc/certs/"
     command:
       - --providers.docker=true
@@ -175,7 +175,7 @@ services:
       - TRAEFIK_V2_MODE=true
     labels:
         - "traefik.http.routers.index.rule=PathPrefix(`/`)"
-        - "traefik.http.routers.index.rule=host(`reportportal.thierryboulord.me`)"
+        #- "traefik.http.routers.index.rule=host(`reportportal.thierryboulord.me`)"
         - "traefik.http.routers.index.service=index"
         - "traefik.http.services.index.loadbalancer.server.port=8080"
         - "traefik.http.services.index.loadbalancer.server.scheme=http"
