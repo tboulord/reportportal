@@ -175,7 +175,7 @@ services:
       - TRAEFIK_V2_MODE=true
     labels:
         - "traefik.http.routers.index.rule=PathPrefix(`/`)"
-        - "traefik.http.routers.index.rule=host(`reportportal.thierryboulord.me`)"
+        #- "traefik.http.routers.index.rule=host(`reportportal.thierryboulord.me`)"
         - "traefik.http.routers.index.service=index"
         - "traefik.http.services.index.loadbalancer.server.port=8080"
         - "traefik.http.services.index.loadbalancer.server.scheme=http"
