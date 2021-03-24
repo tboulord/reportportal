@@ -22,7 +22,7 @@ services:
       - "443:443"   # TLS/SSL
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - "./data/traefik/dynamic/certs-traefik.yaml:/etc/traefik/dynamic/certs-traefik.yaml"
+      - "./data/traefik/certs-traefik.yaml:/etc/traefik/certs-traefik.yaml"
       - "./data/certs/traefik:/etc/certs/"
     command:
       - --providers.docker=true
@@ -32,7 +32,7 @@ services:
       - --api.dashboard=true
       - --api.insecure=true
       # TLS/SSL
-      - "--providers.file.directory=/etc/traefik/dynamic"
+      - "--providers.file.directory=/etc/traefik"
       - "--entrypoints.websecure.address=:443"
     restart: always
 
