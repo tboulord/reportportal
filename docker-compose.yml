@@ -162,7 +162,7 @@ services:
       - "traefik.http.services.uat.loadbalancer.server.port=9999"
       - "traefik.http.services.uat.loadbalancer.server.scheme=http"
       - "traefik.expose=true"
-      - "traefik.http.routers.uat.tls=true"
+      - "traefik.http.routers.uat.tls=false"
     restart: always
 
   index:
@@ -216,7 +216,7 @@ services:
       - "traefik.http.services.api.loadbalancer.server.scheme=http"
       - "traefik.expose=true"
       - "traefik.http.routers.api.tls=false"
-      - "traefik.http.routers.api.tls.passthrough=true"
+      #- "traefik.http.routers.api.tls.passthrough=true"
     restart: always
 
   ui:
@@ -231,7 +231,7 @@ services:
       - "traefik.http.services.ui.loadbalancer.server.port=8080"
       - "traefik.http.services.ui.loadbalancer.server.scheme=http"
       - "traefik.expose=true"
-      - "traefik.http.routers.ui.tls=true"
+      - "traefik.http.routers.ui.tls=false"
     restart: always
 
   minio:
