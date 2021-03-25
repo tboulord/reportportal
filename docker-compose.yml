@@ -34,7 +34,6 @@ services:
       # TLS/SSL
       - "--providers.file.directory=/etc/traefik"
       - "--entrypoints.websecure.address=:443"
-      - "--entryPoints.web.proxyprotocol.insecure=true"
     restart: always
 
   elasticsearch:
