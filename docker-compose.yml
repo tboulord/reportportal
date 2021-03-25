@@ -32,8 +32,8 @@ services:
       - --api.dashboard=true
       - --api.insecure=true
       # TLS/SSL
-      #- "--providers.file.directory=/etc/traefik"
-      #- "--entrypoints.websecure.address=:443"
+      - "--providers.file.directory=/etc/traefik"
+      - "--entrypoints.websecure.address=:443"
     restart: always
 
   elasticsearch:
@@ -162,7 +162,7 @@ services:
       - "traefik.http.services.uat.loadbalancer.server.port=9999"
       - "traefik.http.services.uat.loadbalancer.server.scheme=http"
       - "traefik.expose=true"
-      - "traefik.http.routers.uat.tls=false"
+      - "traefik.http.routers.uat.tls=true"
     restart: always
 
   index:
@@ -180,7 +180,7 @@ services:
         - "traefik.http.services.index.loadbalancer.server.port=8080"
         - "traefik.http.services.index.loadbalancer.server.scheme=http"
         - "traefik.expose=true"
-        - "traefik.http.routers.index.tls=false"
+        - "traefik.http.routers.index.tls=true"
     restart: always
 
   api:
@@ -215,7 +215,8 @@ services:
       - "traefik.http.services.api.loadbalancer.server.port=8585"
       - "traefik.http.services.api.loadbalancer.server.scheme=http"
       - "traefik.expose=true"
-      - "traefik.http.routers.api.tls=false"
+      - "traefik.http.routers.api.tls=true"
+      - "traefik.http.routers.api.tls.passthrough=true"
     restart: always
 
   ui:
@@ -230,7 +231,7 @@ services:
       - "traefik.http.services.ui.loadbalancer.server.port=8080"
       - "traefik.http.services.ui.loadbalancer.server.scheme=http"
       - "traefik.expose=true"
-      - "traefik.http.routers.ui.tls=false"
+      - "traefik.http.routers.ui.tls=true"
     restart: always
 
   minio:
