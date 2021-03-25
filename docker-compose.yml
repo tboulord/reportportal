@@ -215,8 +215,7 @@ services:
       - "traefik.http.services.api.loadbalancer.server.port=8585"
       - "traefik.http.services.api.loadbalancer.server.scheme=http"
       - "traefik.expose=true"
-      - "traefik.http.routers.api.rule=Host(`reportportal.thierryboulord.me`)"
-      - "traefik.http.routers.api.tls=true"
+      - "traefik.http.routers.api.tls=false"
       #- "traefik.http.routers.api.tls.passthrough=true"
     restart: always
 
